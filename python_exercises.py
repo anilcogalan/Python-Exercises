@@ -220,10 +220,14 @@ even_and_odd_numbers(l)
 
 students = ["Ali", "Veli", "Ayşe", "Talat", "Zeynep", "Ece"]
 
-# Print the first 3 indices and then the values in the other index
-print([["From the Faculty of Engineering ", students]
-       if i < 3 else ["From the Faculty of Medicine ", students]
-       for i, students in enumerate(students)])
+# Print the first 3 indices with ranks and then the values in the other index
+result = [["From the Faculty of Engineering " + str(i) + "." + student] \
+          if i < 4 else ["From the Faculty of Medicine " + str(i - 3) + ". " + student] \
+          for i, student in enumerate(students, 1)]
+
+for line in result:
+    print(line)
+
 
 ###############################################
 # TASK 7: 3 lists are given below. In the lists, there is a course code, credit and quota information, respectively. Print course information using zip.
